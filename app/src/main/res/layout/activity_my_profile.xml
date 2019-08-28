@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="viewClickHandler"
+            type="com.kartum.ui.userprofile.viewmodel.MyProfileViewModel.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.kartum.ui.userprofile.viewmodel.MyProfileViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/topbar"
+            layout="@layout/topbar_gradient" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/addDocument"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:onClick="@{(v)->viewClickHandler.onEditClick()}"
+            android:src="@drawable/ic_edit_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_user" />
+
+            <com.kartum.custom.CBTextView
+                android:id="@+id/tvName"
+                style="@style/profile_text_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="FIRST NAME" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/layout_border"
+            android:orientation="horizontal">
+
+            <com.kartum.custom.CBTextView
+                android:id="@+id/tvOtherHeading"
+                style="@style/service_heading_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/user_details"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp">
+
+                <com.kartum.custom.CMTextView
+                    android:id="@+id/tvEmail"
+                    style="@style/simple_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="qwerty@gmail.com" />
+
+                <com.kartum.custom.CMTextView
+                    android:id="@+id/tvEmailEdit"
+                    style="@style/edit_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewClickHandler.onEmailChangeClick(v)}"
+                    android:text="@string/edit" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/black_33" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp">
+
+                <com.kartum.custom.CMTextView
+                    android:id="@+id/tvNumber"
+                    style="@style/simple_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1234567890" />
+
+                <com.kartum.custom.CMTextView
+                    android:id="@+id/tvNumberEdit"
+                    style="@style/edit_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewClickHandler.onEmailChangeClick(v)}"
+                    android:text="@string/edit" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-5dp"
+            android:background="@drawable/layout_border"
+            android:orientation="horizontal">
+
+            <com.kartum.custom.CBTextView
+                android:id="@+id/tvServiceRepairHist"
+                style="@style/service_heading_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:text="@string/vehicle_info"
+                android:textAllCaps="true" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v)->viewClickHandler.onAddVehicleChangeClick(v)}">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAddHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add_vehicle" />
+
+                <com.kartum.custom.CTextView
+                    style="@style/txt_fff_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/ivAddHistory"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:text="@string/add_vehicle" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMyVehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            tools:listitem="@layout/item_vehicles"
+            android:layout_marginEnd="@dimen/_20sdp" />
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="java.lang.Boolean" />
+
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bottom_sheet_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:orientation="vertical">
+
+
+                <com.kartum.custom.CMTextView
+                    android:id="@+id/tvTitle"
+                    style="@style/txt_text_primary_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/st_do_you_want_call_police" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_10sdp">
+
+                    <com.kartum.custom.CButtonViewM
+                        android:id="@+id/btnNo"
+                        style="@style/btnStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:background="@drawable/btn_bg_skip"
+                        android:paddingStart="@dimen/_30sdp"
+                        android:paddingEnd="@dimen/_30sdp"
+                        android:text="@string/btn_no"
+                        android:textAllCaps="true" />
+
+                    <com.kartum.custom.CButtonViewM
+                        android:id="@+id/btnYes"
+                        style="@style/btnStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/btnNo"
+                        android:background="@drawable/btn_bg"
+                        android:paddingStart="@dimen/_30sdp"
+                        android:paddingEnd="@dimen/_30sdp"
+                        android:text="@string/btn_yes"
+                        android:textAllCaps="true" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

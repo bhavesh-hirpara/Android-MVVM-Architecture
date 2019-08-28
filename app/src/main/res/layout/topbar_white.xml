@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isBackShow"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isShowSearch"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isShowAdd"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="topBarClickListener"
+            type="com.kartum.interfaces.TopBarClickListener" />
+
+
+    </data>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:contentInsetStart="@dimen/dp0"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            app:theme="@style/Toolbar">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <com.kartum.custom.CMTextView
+                        android:id="@+id/tvTitleText"
+                        style="@style/txt_333_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/text_primary"
+                        tools:text="@string/home" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMenu"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_gravity="center_vertical|start"
+                    android:contentDescription="@null"
+                    android:onClick="@{(v)->topBarClickListener.onTopBarClickListener(v,@string/menu)}"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_topbar_menu"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:contentDescription="@null"
+                    android:onClick="@{(v)->topBarClickListener.onTopBarClickListener(v,@string/back)}"
+                    android:padding="@dimen/dp10"
+                    android:visibility="@{isBackShow ? View.VISIBLE : View.GONE, default=gone}" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:contentDescription="@null"
+                    android:onClick="@{(v)->topBarClickListener.onTopBarClickListener(v,@string/location)}"
+                    android:padding="@dimen/dp7"
+                    android:src="@drawable/ic_location_on_white"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|end"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgServiceTimeline"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginEnd="@dimen/dp7"
+                        android:padding="@dimen/dp10"
+                        app:srcCompat="@drawable/ic_service_timeline"
+                        android:onClick="@{(v)->topBarClickListener.onTopBarClickListener(v,@string/myschedule)}"
+                        android:visibility="@{isShowSearch ? View.VISIBLE : View.VISIBLE, default=visible}" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgUser"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:padding="@dimen/dp10"
+                        app:srcCompat="@drawable/ic_topbar_user"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:onClick="@{(v)->topBarClickListener.onTopBarClickListener(v,@string/addevent)}"
+                        android:visibility="@{isShowSearch ? View.VISIBLE : View.VISIBLE, default=visible}" />
+                </LinearLayout>
+            </FrameLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+</layout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="viewClickHandler"
+            type="com.kartum.ui.dashboard.viewmodel.DashboardViewModel.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.kartum.ui.dashboard.viewmodel.DashboardViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                        <include
+                            android:id="@+id/topbar"
+                            layout="@layout/topbar_white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/_15sdp"
+                        android:paddingEnd="@dimen/_15sdp">
+                        <androidx.core.widget.NestedScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_6sdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvMenus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:layout_weight="1"
+                            android:paddingRight="10dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/topbar"
+                            app:spanCount="3"
+                            tools:listitem="@layout/item_dashboard" />
+                        </androidx.core.widget.NestedScrollView>
+
+                        <com.kartum.custom.CBButtonView
+                            android:id="@+id/btnNotification"
+                            style="@style/btnStyleAddVehicle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingStart="@dimen/_25sdp"
+                            android:paddingEnd="@dimen/_25sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="@string/notification"
+                            android:textAllCaps="false"
+                            android:visibility="gone"
+                            android:background="@drawable/button_background"
+                            android:onClick="@{(v)->viewClickHandler.onNotificationClick(v)}"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/drawer"
+            layout="@layout/custom_side_menu"
+            android:layout_width="@dimen/dp210"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

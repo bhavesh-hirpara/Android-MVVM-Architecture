@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="viewClickHandler"
+            type="com.kartum.ui.otp.viewmodel.VerifyOTPViewModel.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.kartum.ui.otp.viewmodel.VerifyOTPViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_screen_background"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:onClick="@{(v)->viewClickHandler.onBackClick(v)}"
+            android:src="@drawable/ic_arrow_back_24dp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_25ssp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingEnd="@dimen/_15sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/otp_image" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@mipmap/login_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.kartum.custom.CMTextView
+                        android:id="@+id/tvTitle"
+                        style="@style/txt_text_primary_20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:text="@string/hint_otp_verification"
+                        android:textAllCaps="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                    <com.kartum.custom.CTextView
+                        android:id="@+id/tvForgotPassword"
+                        style="@style/txt_000_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/st_otp_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+
+                    <com.kartum.custom.PinView
+                        android:id="@+id/pinView"
+                        style="@style/txt_333_16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cursorVisible="false"
+                        app:forceKeyboard="true"
+                        app:password="false"
+                        app:pinBackground="@drawable/edittext_selector_focused"
+                        app:pinHeight="40dp"
+                        app:pinLength="6"
+                        app:pinWidth="40dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <com.kartum.custom.CButtonViewM
+                    android:id="@+id/btnContinue"
+                    style="@style/btnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/btn_bg"
+                    android:onClick="@{(v)->viewClickHandler.onVerifyClick(v)}"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:text="@string/btn_verify" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/llSocialSignUp">
+
+                    <com.kartum.custom.CTextView
+                        style="@style/txt_000_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/dont_receive_the_otp" />
+
+                    <com.kartum.custom.CMTextView
+                        android:id="@+id/tvSignUp"
+                        style="@style/txt_primary_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v)->viewClickHandler.onResendClick()}"
+                        android:singleLine="true"
+                        android:text="@string/btn_resend_otp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

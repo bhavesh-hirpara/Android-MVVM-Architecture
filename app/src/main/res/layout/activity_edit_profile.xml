@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isEndUser"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="viewClickHandler"
+            type="com.kartum.ui.editprofile.viewmodel.EditProfileViewModel.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.kartum.ui.editprofile.viewmodel.EditProfileViewModel" />
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/topbar"
+            layout="@layout/topbar_gradient" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_20sdp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/_78sdp"
+                android:layout_height="@dimen/_78sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.kartum.custom.CMTextView
+                android:id="@+id/tvEditProfile"
+                style="@style/service_heading_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/edit_profile_photo"
+                app:layout_constraintEnd_toEndOf="@+id/ivImage"
+                app:layout_constraintStart_toStartOf="@+id/ivImage"
+                app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/tvEditProfile"
+                tools:layout_editor_absoluteX="26dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:hint="@string/first_name_cap"
+                    android:theme="@style/EditTextHint">
+
+                    <com.kartum.custom.CEditTextView
+                        android:id="@+id/editFirstName"
+                        style="@style/txt_primary_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_selector_focused"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:hint="@string/last_name_cap"
+                    android:theme="@style/EditTextHint">
+
+                    <com.kartum.custom.CEditTextView
+                        android:id="@+id/editLastName"
+                        style="@style/txt_primary_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_selector_focused"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <com.kartum.custom.CButtonViewM
+                android:id="@+id/btnSave"
+                style="@style/btnStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:paddingStart="@dimen/_45sdp"
+                android:onClick="@{(v)->viewClickHandler.onSaveClick(v)}"
+                android:paddingEnd="@dimen/_45sdp"
+                android:text="@string/save"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat8"
+                app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat8"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat8" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

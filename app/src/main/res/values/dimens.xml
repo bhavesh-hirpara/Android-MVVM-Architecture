@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_bar_height">200dp</dimen>
+    <dimen name="item_width">200dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="btn_height">@dimen/_32sdp</dimen>
+    <dimen name="gap_between_inputs">15dp</dimen>
+    <dimen name="btn_width">60dp</dimen>
+    <dimen name="pad_splash_msg">@dimen/_10sdp</dimen>
+
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp_h1">0.9dp</dimen>
+    <dimen name="dp1">@dimen/_1sdp</dimen>
+    <dimen name="dp2">@dimen/_2sdp</dimen>
+    <dimen name="dp3">@dimen/_3sdp</dimen>
+    <dimen name="dp5">@dimen/_5sdp</dimen>
+    <dimen name="dp4">@dimen/_4sdp</dimen>
+    <dimen name="dp6">@dimen/_6sdp</dimen>
+    <dimen name="dp7">@dimen/_7sdp</dimen>
+    <dimen name="dp8">@dimen/_8sdp</dimen>
+    <dimen name="dp10">@dimen/_10sdp</dimen>
+    <dimen name="dp12">@dimen/_12sdp</dimen>
+    <dimen name="dp15">@dimen/_15sdp</dimen>
+    <dimen name="dp20">@dimen/_20sdp</dimen>
+    <dimen name="dp22">@dimen/_22sdp</dimen>
+    <dimen name="dp25">@dimen/_25sdp</dimen>
+    <dimen name="dp30">@dimen/_30sdp</dimen>
+    <dimen name="dp35">@dimen/_35sdp</dimen>
+    <dimen name="dp40">@dimen/_40sdp</dimen>
+    <dimen name="dp50">@dimen/_50sdp</dimen>
+    <dimen name="dp55">@dimen/_55sdp</dimen>
+    <dimen name="dp60">@dimen/_60sdp</dimen>
+    <dimen name="dp80">@dimen/_80sdp</dimen>
+    <dimen name="dp90">@dimen/_90sdp</dimen>
+    <dimen name="dp100">@dimen/_100sdp</dimen>
+    <dimen name="dp145">@dimen/_145sdp</dimen>
+    <dimen name="dp120">@dimen/_120sdp</dimen>
+    <dimen name="dp160">@dimen/_160sdp</dimen>
+    <dimen name="dp180">@dimen/_180sdp</dimen>
+    <dimen name="dp200">@dimen/_200sdp</dimen>
+    <dimen name="dp210">@dimen/_210sdp</dimen>
+
+    <dimen name="px1">1px</dimen>
+</resources>
